@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); %>
+        <style>
+            *{margin: 0;padding: 0;box-sizing: border-box;}
+    /*si tiene error intentar actualizar el navegador*/
+    :root{
+     --slider-ancho: 400px;
+     --slider-alto: 150px;
+     --transition-ms: 2000ms;
+     --btn-position-x: 25px;
+     --btn-position-y: 70px;
+     --btn-size: 30px;
+    }
+    h1,p{
+     font-family: sans-serif;
+     text-align: center;
+     color: #2e2e2e;
+     font-weight: bold;
+    }
+    p{
+     margin-top: 3em;
+    }
+    .slider{
+     margin: 20px auto;
+     height: var(--slider-alto);
+     width: var(--slider-ancho);
+     overflow: hidden;
+     border-radius: 5px;
+     position: relative;
+    }
+    .sliderInner{
+     width: 100%;
+     height: 100%;
+     background-color: aqua;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     position: relative;
+    }
+    .imagenes{
+     display: flex;
+     height: 100%;
+    
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     transition: var(--transition-ms) all ease;
+    }
+    .imgItem{
+     width: var(--slider-ancho);
+     height: var(--slider-alto);
+     background-position: center;
+    }
+    .btnArroI, .btnArroD{
+     opacity: 0.5;
+     border: 1px solid rgba(0, 0, 0, 0.250);
+     border-radius: 50%;
+     width: var(--btn-size);
+     height: var(--btn-size);
+
+    position: absolute;
+    top: var(--btn-position-y);
+    }
+    .btnArroI:hover, .btnArroD:hover{
+     transform: scale(1.2);
+     background-color: rgba(255, 255, 255, 0.600);
+    }
+    .btnArroI{
+     left: var(--btn-position-x);   
+    }
+    .btnArroD{
+     right: var(--btn-position-x);
+    }
+    </style>
+    </head>
+      
+    <body>
+    <header>
+      <%- include('../partials/header'); %>
+    </header>
+    <div class="container">
+
+        <h1>Slider</h1>
+        <div class="slider">
+            <div class="sliderInner">
+                <div class="imagenes">
+                    <div class="imgItem imgItem1">
+                        <p>1</p>
+                    </div>
+                    <div class="imgItem imgItem2">
+                        <p>2</p>
+                    </div>
+                    <div class="imgItem imgItem3">
+                        <p>3</p>
+                    </div>
+                    <div class="imgItem imgItem4">
+                        <p>4</p>
+                    </div>
+                    <div class="imgItem imgItem5">
+                        <p>5</p>
+                    </div>
+                    <div class="imgItem imgItem6">
+                        <p>6</p>
+                    </div>
+    
+                </div>
+            </div>
+                <button class="btnArroI btnL">←</button>
+                <button class="btnArroD btnR">→</button>
+            </div>
+
+    </div>
+    <script>
+        //cargamos en las variable lo que necesitamos del html,
+        let sliderInnerW = document.querySelector('.sliderInner').clientWidth;
+        let imagenes = document.querySelector('.imagenes');
+        let imgItemW = document.querySelector('.imgItem').clientWidth;
+        let btnI = document.querySelector('.btnArroI');
+        let btnD = document.querySelector('.btnArroD');
+        //creamos una variable con la posicion cero como punto de inicio
+        let position = 0;
+        //aqui obtenemos el valor de la anchura total entre todas las imagenes
+    let allImgWidth = imgItemW * imagenes.childElementCount;
+    let wINeg = imgItemW - allImgWidth;
+    
+    btnI.addEventListener('click', () => {
+    if(position < 0) {
+        position += imgItemW;
+        imagenes.style = "left:" + position + "px";
+    }else{
+        return false;
+    }
+    });
+    btnD.addEventListener('click', () => {
+    if(position > wINeg){
+        position -= imgItemW;
+        imagenes.style = "left:" + position + "px";
+    }else{
+        return false;
+    }
+    });
+    </script>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>

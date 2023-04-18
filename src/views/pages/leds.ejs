@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); %>
+        <style>
+            .container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 50px;
+            }
+            .btns{
+                display: flex;
+                flex-direction: row;
+                margin-top: 3em;
+            }
+            .width{
+                width: 200px;
+                height: 200px;
+            }
+            .top{
+                border-top: 10px solid greenyellow;
+            }
+            .bottom{
+                border-bottom: 10px solid greenyellow;
+            }
+            .left{
+                border-left: 10px solid greenyellow;
+            }
+            .right{
+                border-right: 10px solid greenyellow;
+            }
+        </style>
+      </head>
+      
+      <body>
+      <header>
+        <%- include('../partials/header'); %>
+      </header>
+    <div class="container">
+            <div class="width c1"></div>
+            <div class="width c2"></div>
+        <div class="btns">
+            <button class="cero">0</button>
+            <button class="uno">1</button>
+            <button class="dos">2</button>
+            <button class="tres">3</button>
+            <button class="cuatro">4</button>
+            <button class="cinco">5</button>
+            <button class="seis">6</button>
+            <button class="siete">7</button>
+            <button class="ocho">8</button>
+            <button class="nueve">9</button>
+        </div>
+    </div>
+        
+    <footer>
+            <%- include('../partials/footer'); %>
+    </footer>
+        
+    <script>
+        let c1 = document.getElementsByClassName("c1");
+        let c2 = document.getElementsByClassName("c2");
+        let btn0 = document.getElementsByClassName("cero");
+        let btn1 = document.getElementsByClassName("uno");
+        let btn2 = document.getElementsByClassName("dos");
+        let btn3 = document.getElementsByClassName("tres");
+        let btn4 = document.getElementsByClassName("cuatro");
+        let btn5 = document.getElementsByClassName("cinco");
+        let btn6 = document.getElementsByClassName("seis");
+        let btn7 = document.getElementsByClassName("siete");
+        let btn8 = document.getElementsByClassName("ocho");
+        let btn9 = document.getElementsByClassName("nueve");
+
+        btn0[0].addEventListener("click", () => {
+            c1[0].classList.add("left");
+            c1[0].classList.add("top");
+            c1[0].classList.add("right");
+            c1[0].classList.remove("bottom");
+
+            c2[0].classList.add("left");
+            c2[0].classList.add("bottom");
+            c2[0].classList.add("right");
+        });
+
+        btn1[0].addEventListener("click", () => {
+            c1[0].classList.remove("left");
+            c1[0].classList.remove("top");
+            c1[0].classList.add("right");
+            c1[0].classList.remove("bottom");
+
+            c2[0].classList.remove("left");
+            c2[0].classList.remove("bottom");
+            c2[0].classList.add("right");
+        });
+
+        btn2[0].addEventListener("click", () => {
+            c1[0].classList.remove("left");
+            c1[0].classList.add("top");
+            c1[0].classList.add("right");
+            c1[0].classList.add("bottom");
+
+            c2[0].classList.add("left");
+            c2[0].classList.add("bottom");
+            c2[0].classList.remove("right");
+        });
+
+        btn3[0].addEventListener("click", () => {
+            c1[0].classList.remove("left");
+            c1[0].classList.add("top");
+            c1[0].classList.add("right");
+            c1[0].classList.add("bottom");
+
+            c2[0].classList.remove("left");
+            c2[0].classList.add("bottom");
+            c2[0].classList.add("right");
+        });
+
+        btn4[0].addEventListener("click", () => {
+            c1[0].classList.add("left");
+            c1[0].classList.remove("top");
+            c1[0].classList.add("right");
+            c1[0].classList.add("bottom");
+
+            c2[0].classList.remove("left");
+            c2[0].classList.remove("bottom");
+            c2[0].classList.add("right");
+        });
+
+        btn5[0].addEventListener("click", () => {
+            c1[0].classList.add("left");
+            c1[0].classList.add("top");
+            c1[0].classList.remove("right");
+            c1[0].classList.add("bottom");
+
+            c2[0].classList.remove("left");
+            c2[0].classList.add("bottom");
+            c2[0].classList.add("right");
+        });
+
+        btn6[0].addEventListener("click", () => {
+            c1[0].classList.add("left");
+            c1[0].classList.add("top");
+            c1[0].classList.remove("right");
+            c1[0].classList.add("bottom");
+
+            c2[0].classList.add("left");
+            c2[0].classList.add("bottom");
+            c2[0].classList.add("right");
+        });
+
+        btn7[0].addEventListener("click", () => {
+            c1[0].classList.remove("left");
+            c1[0].classList.add("top");
+            c1[0].classList.add("right");
+            c1[0].classList.remove("bottom");
+
+            c2[0].classList.remove("left");
+            c2[0].classList.remove("bottom");
+            c2[0].classList.add("right");
+        });
+
+        btn8[0].addEventListener("click", () => {
+            c1[0].classList.add("left");
+            c1[0].classList.add("top");
+            c1[0].classList.add("right");
+            c1[0].classList.add("bottom");
+
+            c2[0].classList.add("left");
+            c2[0].classList.add("bottom");
+            c2[0].classList.add("right");
+        });
+
+        btn9[0].addEventListener("click", () => {
+            c1[0].classList.add("left");
+            c1[0].classList.add("top");
+            c1[0].classList.add("right");
+            c1[0].classList.add("bottom");
+
+            c2[0].classList.remove("left");
+            c2[0].classList.remove("bottom");
+            c2[0].classList.add("right");
+        });
+    </script>
+</body>
+</html>
